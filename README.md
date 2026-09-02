@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 Projeto: API de Livros (Full-Stack)
+# 📚 Projeto: API de Livros
 
 **Projeto prático desenvolvido durante o 3º ano do Ensino Médio — 3º Bimestre**
 
