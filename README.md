@@ -16,7 +16,7 @@
 
 ## 📌 Sobre o Projeto
 
-A **API de Livros** é uma aplicação web completa (Full-Stack) desenvolvida para gerenciar um acervo bibliográfico. O projeto integra um backend moderno em Python criado para expor serviços RESTful, um banco de dados relacional para persistência das informações, e uma interface gráfica no frontend para interação direta do usuário.
+A **API de Livros** é uma aplicação web completa (Full-Stack) desenvolvida para gerenciar um acervo bibliográfico. O projeto integra um backend moderno em Python, um banco de dados relacional para persistência das informações, e uma interface gráfica no frontend para interação direta do usuário.
 
 ---
 
