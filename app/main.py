@@ -22,11 +22,10 @@ def on_startup():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-    ],
-    allow_credentials=False,
+    # During local development allow all origins to avoid CORS issues.
+    # For production restrict this to the specific frontend origin(s).
+    allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
 )
