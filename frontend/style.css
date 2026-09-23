@@ -1,5 +1,5 @@
 :root {
-  --ink: #17252f;
+  --ink: #171d2f;
   --muted: #65747d;
   --paper: #f5f1e8;
   --surface: #fffdf8;
@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 320px; 
   color: var(--ink);
   background:
     linear-gradient(135deg, rgba(196, 80, 50, 0.08), transparent 38%),
