@@ -166,7 +166,8 @@ async function salvarLivro(evento) {
   } finally {
     definirCarregamentoFormulario(false);
   }
-}
+} 
+
 
 async function excluirLivro(idLivro, titulo) {
   const confirmou = window.confirm(`Deseja excluir o livro "${titulo}"?`);
