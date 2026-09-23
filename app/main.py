@@ -8,13 +8,17 @@ from app.models import Livro
 from app.schemas import LivroCriacao, LivroResposta
 
 
-BaseBanco.metadata.create_all(bind=mecanismo_banco)
-
 app = FastAPI(
     title="API de Livros",
     version="1.0.0",
     description="API didática para gerenciamento de livros.",
 )
+
+
+@app.on_event("startup")
+def on_startup():
+    # Create tables after the app is imported to avoid DB connections at import time
+    BaseBanco.metadata.create_all(bind=mecanismo_banco)
 
 app.add_middleware(
     CORSMiddleware,
@@ -26,6 +30,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
 )
+
 
 @app.post("/livros", response_model=LivroResposta, status_code=201, tags=["Livros"])
 def criar_livro(dados_livro: LivroCriacao, sessao_banco: Session = Depends(obter_sessao_banco)):
@@ -64,9 +69,6 @@ def obter_livro(id_livro: int, sessao_banco: Session = Depends(obter_sessao_banc
     return livro
 
 
-
-
-
 @app.put("/livros/{id_livro}", response_model=LivroResposta, tags=["Livros"])
 def atualizar_livro(
     id_livro: int,
@@ -91,8 +93,6 @@ def atualizar_livro(
     return livro
 
 
-
-
 @app.delete("/livros/{id_livro}", tags=["Livros"])
 def excluir_livro(
     id_livro: int,
@@ -109,4 +109,3 @@ def excluir_livro(
     sessao_banco.commit()
 
     return {"mensagem": "Livro excluído com sucesso"}
-
